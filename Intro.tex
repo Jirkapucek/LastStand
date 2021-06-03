@@ -55,7 +55,7 @@
 \title[Spektrálne metódy]{Spektrálne kolokačné metódy a vlastnéčísla Laplaceovho operátora}
 \author[Veronika Bozděchová, Jiří Púček, Marek Mikloš] {Veronika Bozděchová, Jiří Púček, Marek Mikloš \\ }
 \institute[Charles University]{Charles University, Czech Republic}
-\date{\today}
+\date{}
 
 
 
@@ -158,18 +158,63 @@ Aproximácie parciálnych derivácií podľa x a y budú označené ako $(\wideh
 \end{equation}
 \end{subequations}
 
-
-
+\end{frame}
+	\section*{Matlab kód}
+\label{sec:xxxx}
+\begin{frame}[fragile]
+	\frametitle{Matlab kód}
+	{\tiny
+		Zadefinujeme jednotlivé konstanty a vektory, se kterými pracujeme (speciálně pro jeden pevný konec máme $a_4=\frac{F}{EIzz}=\frac{g\rho d a^2}{EIzz}$).
+		\begin{verbatim*}
+			g=9.81;rho=650;d=10;x=[-d/2,d/2];a=0.25;a1=0;a2=0;a3=0;a4=0;
+			E=10^5;Izz=1;n=20;
+		\end{verbatim*}
+		Dále si vybereme funkci $f(x)$, která nám udává hustotu působící síly na jednotku délky. Tato funkce nám dává pravou stranu naší obyčejné diferenciální rovnice.
+		\begin{verbatim*}
+			f=@(x) -g*rho*a^2*1.^(x);
+			L=E*Izz*diffmat([n n+4],4,x);
+		\end{verbatim*}
+		Pro případ dvou případně jednoho pevného konce volíme dané okrajové podmínky. V textu níže můžeme vidět příslušné rovnice příslušné okrajovým podmínkám pro jeden pevný konec (pro případ dvou pevných konců $T_1=T_3$,$T_2=T_4$ s tím, že hranice je nyní $+\frac{d}{2}$ místo $-\frac{d}{2}$).
+		\begin{verbatim*}
+			T1=diffrow(n+4,0,-d/2,x);T3=diffrow(n+4,1,-d/2,x);T2=diffrow(n+4,2,d/2,x);T4=diffrow(n+4,3,d/2,x);
+		\end{verbatim*}
+		Sestavíme naši maticovou soustavu a vyřešíme ji.
+		\begin{verbatim*}
+			A=[L;T1;T2;T3;T4];
+			rhs=[gridsample(f,n);a1;a2;a3;a4];
+			u=A\rhs;
+		\end{verbatim*}
+	}
 \end{frame}
 
-
-\section*{xxxx}
-\label{sec:xxxx}
-
 \begin{frame}
-  \frametitle{xxxx}
-
-
+	\frametitle{Porovnání Mathematica x Matlab}
+	\begin{minipage}{\textwidth}
+		\begin{minipage}[b]{0.5\textwidth}
+			\centering
+			\includegraphics[width=1\textwidth]{1}
+			\captionof*{figure}{\textbf{Obrázek 1.} Mathematica (pevné konce)}
+		\end{minipage}
+		\begin{minipage}[b]{0.5\textwidth}
+			\centering
+			\includegraphics[width=1\textwidth]{2}
+			\captionof*{figure}{\textbf{Obrázek 2.} Mathematica (pevný konec)}
+		\end{minipage}
+		\hfill
+	\end{minipage}
+	\begin{minipage}{\textwidth}
+		\begin{minipage}[b]{0.5\textwidth}
+			\centering
+			\includegraphics[width=0.7\textwidth]{untitled1}
+			\captionof*{figure}{\textbf{Obrázek 3.} Matlab (pevné konce)}
+		\end{minipage}
+		\begin{minipage}[b]{0.5\textwidth}
+			\centering
+			\includegraphics[width=0.7\textwidth]{untitled2}
+			\captionof*{figure}{\textbf{Obrázek 4.} Matlab (pevný konec)}
+		\end{minipage}
+		\hfill
+	\end{minipage}
 \end{frame}
 
 
@@ -177,13 +222,3 @@ Aproximácie parciálnych derivácií podľa x a y budú označené ako $(\wideh
 
 
 \end{document}
-
-%
-%
-%
-%
-% DOCUMENT ENDS HERE
-%
-%
-%
-%
