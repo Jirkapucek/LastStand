@@ -1,0 +1,189 @@
+\documentclass{beamer}
+\usepackage{amsmath}%
+\usepackage{amsfonts}%
+\usepackage{amssymb}%
+
+%\usepackage{hyperref}
+
+\usepackage{graphicx}
+\usepackage{subfig}
+
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{multicol}
+%\usepackage{natbib}%
+\usepackage{units}
+
+\usepackage{stmaryrd}
+\usepackage{gensymb}
+\usepackage{bibentry}
+\usepackage{accents}
+
+%\usepackage{booktabs}
+
+\usepackage{tensor}
+\usepackage[bbgreekl]{mathbbol}
+\usepackage{bm}
+\usepackage{ulem}
+
+% FANCY TABLES
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{threeparttable}
+
+%\usetheme{Luebeck}
+\usetheme{Madrid}
+%\usetheme{CambridgeUS}
+%\usetheme{Pittsburgh}
+%\usetheme{default}
+%\mode<presentation>
+
+%FOR CAMBRIDGE US THEME -- red bullets/captions in itemize environment
+\setbeamercolor{item projected}{bg=black}
+\setbeamertemplate{enumerate items}[default]
+\setbeamertemplate{navigation symbols}{}
+\setbeamercovered{transparent}
+
+\setbeamercolor*{enumerate item}{fg=black}
+\setbeamercolor*{enumerate subitem}{fg=black}
+\setbeamercolor*{enumerate subsubitem}{fg=black}
+
+\setbeamercolor{block title}{fg=black}
+\setbeamercolor{caption name}{fg=black}
+
+\title[Spektrálne metódy]{Spektrálne kolokačné metódy a vlastnéčísla Laplaceovho operátora}
+\author[Veronika Bozděchová, Jiří Púček, Marek Mikloš] {Veronika Bozděchová, Jiří Púček, Marek Mikloš \\ }
+\institute[Charles University]{Charles University, Czech Republic}
+\date{\today}
+
+
+
+
+\let\newblock\relax
+
+\newcommand{\smallbibentry}[1]{{\tiny \bibentry{#1}}}
+
+% \AtBeginSection[]
+% {
+%   \begin{frame}
+% %    \frametitle{Outline}
+%     \tableofcontents[currentsection]
+%   \end{frame}
+% }
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\bibliographystyle{plain}
+\nobibliography{vit-prusa}
+\end{frame}
+
+% \begin{frame}
+%   \frametitle{Outline}
+%   \tableofcontents
+% \end{frame}
+
+\section*{Úvod}
+\label{sec:1}
+
+
+\begin{frame}
+ \frametitle{Úvod}
+
+'Najprimitívnejší model pre vychýlenie dosiek je daný rovnicou'
+\begin{equation}
+\label{eq:1}
+\frac{\partial ^2{u}}{\partial {t^{2}}}-K^{2}\Delta{u}=0,
+\end{equation}
+"kde $u$ je vychýlenie dané ako zobrazenie $u:(t,\vec{x}) \in \mathbb{R} \times \mathbb{R}^{2} \mapsto \mathbb{R}$"
+"Pre stojaté vlnenie má riešenie \ref{eq:1} tvar:"
+\begin{equation}
+\label{eq:2}
+-\Delta{\widehat{u}}=\frac{\omega^{2}}{K^{2}}\widehat{u}
+\end{equation}
+"Ak označíme $L=_{def}-\Delta$ a $\lambda=_{def}\frac{\omega^{2}}{K^{2}}$ z \ref{eq:2} dostaneme:"
+\begin{equation}
+\label{eq:3}
+-L{\widehat{u}}=\lambda\widehat{u}
+\end{equation}
+"Z čoho dostaneme po dosadení vhodných okrajových podmienok úlohu pre nájdenie vlastných vektorov lineárneho operátora."
+
+\end{frame}
+
+\section*{Pokračovanie}
+\label{sec:P}
+
+\begin{frame}
+"Chceme nájsť vlastné vektory a vlastné čísla Laplaceovho operátora v $\Omega \subset \mathbb{R}^{2}$ s nulovou Dirichletovou podmienkou. Chceme teda riešiť:"
+
+\begin{subeqations}
+\label{eq:4}
+\begin{equation}
+\label{eq:5}
+-\Delta{\widehat{u}}=\lambda\widehat{u}
+\end{equation}
+
+\begin{equation}
+\label{eq:6}
+\widehat{u}|_{\partial{\Omega}}=0
+\end{equation}
+
+\end{subeqations}
+
+
+
+
+Hodnoty \widehat{u} v interpolačných $[x_{i},y_{k}]$ bodoch označíme ako $\widehat{u}_{i,k}$, dostávame:
+
+\begin{equation}
+\label{eq:6}
+\widehat{u}_{i,k}=_{def}(\widehat{u}_{x})_{i,k}=_{def}\widehat{u}(x_i,y_k).
+\end{equation}
+
+Aproximácie parciálnych derivácií podľa x a y budú označené ako $(\widehat{u}_{x})_{i,k}$ a $(\widehat{u}_{y})_{i,k}$. Teda
+
+
+
+\begin{subequations}
+\label{eq:7}
+\begin{equation}
+\label{eq:8}
+(\widehat{u}_{x})_{i,k}=_{def}\frac{\partial \widehat{u} }{\partial x}(x,y)\mid_{x=x_i,y=y_k}
+\end{equation}
+\begin{equation}
+\label{eq:9}
+(\widehat{u}_{y})_{i,k}=_{def}\frac{\partial \widehat{u} }{\partial y}(x,y)\mid_{x=x_i,y=y_k}
+\end{equation}
+\end{subequations}
+
+
+
+\end{frame}
+
+
+\section*{xxxx}
+\label{sec:xxxx}
+
+\begin{frame}
+  \frametitle{xxxx}
+
+
+\end{frame}
+
+
+
+
+
+\end{document}
+
+%
+%
+%
+%
+% DOCUMENT ENDS HERE
+%
+%
+%
+%
