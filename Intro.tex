@@ -1,14 +1,14 @@
 \documentclass{beamer}
-\usepackage{amsmath}%
-\usepackage{amsfonts}%
-\usepackage{amssymb}%
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
 
 %\usepackage{hyperref}
 
 \usepackage{graphicx}
 \usepackage{subfig}
 
-\usepackage[czech]{babel}
+\usepackage[english]{babel}
 \usepackage[utf8]{inputenc}
 
 \usepackage{multicol}
@@ -116,69 +116,109 @@
 \label{sec:P}
 
 \begin{frame}
-"Chceme nájsť vlastné vektory a vlastné čísla Laplaceovho operátora v $\Omega \subset \mathbb{R}^{2}$ s nulovou Dirichletovou podmienkou. Chceme teda riešiť:"
+    "Chceme nájsť vlastné vektory a vlastné čísla Laplaceovho operátora v $\Omega \subset \mathbb{R}^{2}$ s nulovou Dirichletovou podmienkou. Chceme teda riešiť:"
 
-\begin{subeqations}
-\label{eq:4}
-\begin{equation}
-\label{eq:5}
--\Delta{\widehat{u}}=\lambda\widehat{u}
-\end{equation}
+    \begin{subeqations}
+    \label{eq:4}
+    \begin{equation}
+    \label{eq:5}
+    -\Delta{\widehat{u}}=\lambda\widehat{u}
+    \end{equation}
 
-\begin{equation}
-\label{eq:6}
-\widehat{u}|_{\partial{\Omega}}=0
-\end{equation}
+    \begin{equation}
+    \label{eq:6}
+    \widehat{u}|_{\partial{\Omega}}=0
+    \end{equation}
 
-\end{subeqations}
-
-
-
-
-Hodnoty \widehat{u} v interpolačných $[x_{i},y_{k}]$ bodoch označíme ako $\widehat{u}_{i,k}$, dostávame:
-
-\begin{equation}
-\label{eq:6}
-\widehat{u}_{i,k}=_{def}(\widehat{u}_{x})_{i,k}=_{def}\widehat{u}(x_i,y_k).
-\end{equation}
-
-Aproximácie parciálnych derivácií podľa x a y budú označené ako $(\widehat{u}_{x})_{i,k}$ a $(\widehat{u}_{y})_{i,k}$. Teda
+    \end{subeqations}
 
 
 
-\begin{subequations}
-\label{eq:7}
-\begin{equation}
-\label{eq:8}
-(\widehat{u}_{x})_{i,k}=_{def}\frac{\partial \widehat{u} }{\partial x}(x,y)\mid_{x=x_i,y=y_k}
-\end{equation}
-\begin{equation}
-\label{eq:9}
-(\widehat{u}_{y})_{i,k}=_{def}\frac{\partial \widehat{u} }{\partial y}(x,y)\mid_{x=x_i,y=y_k}
-\end{equation}
-\end{subequations}
+
+    Hodnoty \widehat{u} v interpolačných $[x_{i},y_{k}]$ bodoch označíme ako $\widehat{u}_{i,k}$, dostávame:
+
+    \begin{equation}
+    \label{eq:6}
+    \widehat{u}_{i,k}=_{def}(\widehat{u}_{x})_{i,k}=_{def}\widehat{u}(x_i,y_k).
+    \end{equation}
+
+    Aproximácie parciálnych derivácií podľa x a y budú označené ako $(\widehat{u}_{x})_{i,k}$ a $(\widehat{u}_{y})_{i,k}$. Teda
 
 
 
+    \begin{subequations}
+    \label{eq:7}
+    \begin{equation}
+    \label{eq:8}
+    (\widehat{u}_{x})_{i,k}=_{def}\frac{\partial \widehat{u} }{\partial x}(x,y)\mid_{x=x_i,y=y_k}
+    \end{equation}
+    \begin{equation}
+    \label{eq:9}
+    (\widehat{u}_{y})_{i,k}=_{def}\frac{\partial \widehat{u} }{\partial y}(x,y)\mid_{x=x_i,y=y_k}
+    \end{equation}
+    \end{subequations}
 \end{frame}
 
 
-\section*{xxxx}
-\label{sec:xxxx}
+\section*{Vibrace destičky}
+\label{sec:desticka}
 
 \begin{frame}
-  \frametitle{xxxx}
+  \frametitle{Výpočet v Matlabu a porovnání s Mathematicou}
+  V následujích výpočtech jsme vždy uvažovali obdélník $2 \times 3$, s čímž nám vyšla následující vlastní čísla:
 
+  \begin{array}
+ \text{Matlab} & 3.56402 & 6.85389 & 10.9662 & 12.337 &
+   14.2561 & 19.7392 & 20.0134 & 23.3031 & 26.593 &
+   27.4156 & 29.883 & 32.0761 & 37.2852 & 39.7525 &
+   40.5689 & 41.9457 \\
+ \text{Mathematica} & 3.56403 & 6.85392 & 10.9665 &
+   12.3373 & 14.2564 & 19.7397 & 20.0149 & 23.3061 &
+   26.596 & 27.4174 & 29.8888 & 32.0794 & 37.2913 &
+   39.7571 & 40.591 & 41.963 \\
+  \end{array}
+  
 
 \end{frame}
 
+\begin{frame}
+  \frametitle{Matlab vs Mathematica}
+  \begin{figure}[ht]
+    \centering
+    \includegraphics{barevne.png}
+    \caption{\label{fig:label} Matlab s barvami}
+  \end{figure}
 
+\end{frame} 
 
+\begin{frame}
+  \frametitle{Matlab vs Mathematica}
+  \begin{figure}
+    \centering
+    \includegraphics{sede1.png}
+    \caption{V monochronních barvách}
+  \end{figure}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Matlab vs Mathematica}
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width = 0.75\textwidth]{mathematica1.png}
+    \caption{Mathematical plot}
+  \end{figure}
+  
+  \begin{figure}[h!]
+    \centering
+    \includegraphics[width = 0.75\textwidth]{sede1.png}
+    \caption{Matlab plot}
+  \end{figure}
+\end{frame}
 
 
 \end{document}
 
-%
+%                 
 %
 %
 %
